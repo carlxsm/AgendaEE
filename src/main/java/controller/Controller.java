@@ -41,9 +41,11 @@ public class Controller extends HttpServlet {
 
 	protected void novoContato(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.sendRedirect("agenda.jsp");
 		contato.setNome(request.getParameter("nome"));
 		contato.setFone(request.getParameter("fone"));
 		contato.setEmail(request.getParameter("email"));
+		dao.inserirContato(contato);
+		// redireciona para agenda.jsp
+		response.sendRedirect("main");
 	}
 }
